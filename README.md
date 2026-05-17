@@ -16,7 +16,7 @@ Este repositório documenta o aprendizado prático obtido nas atividades de labo
 
 ---
 
-## Aula 1 – Fundamentos de Blue Team
+## Módulo 1 
 
 | Atividade | Tema |
 |-----------|------|
