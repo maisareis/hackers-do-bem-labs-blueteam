@@ -21,7 +21,7 @@ Este repositório documenta o aprendizado prático obtido nas atividades de labo
 | Atividade | Tema |
 |-----------|------|
 | [1.1 – Arquitetura e Design de Rede Segura](aula-01/atividade-1.1-arquitetura-rede-segura.md) | Diagrama de rede, DMZ, VPN e troubleshooting |
-| [1.2 – Ataques e Estratégias de Defesa](aula-01/atividade-1.2-ataques-estrategias-defesa.md) | VirusTotal, EICAR, MITRE ATT&CK e CIS Controls |
-| [1.3 – Infraestrutura de Chaves Públicas](aula-01/atividade-1.3-infraestrutura-chaves-publicas.md) | Salt, GPG, OpenSSL e autenticação por certificado SSH |
-| [1.4 – Gerenciamento de Configuração e IaC](aula-01/atividade-1.4-gerenciamento-configuracao-iac.md) | Ansible, roles e GitHub |
-| [1.5 – Segurança do Endpoint](aula-01/atividade-1.5-seguranca-endpoint.md) | Remoção de serviços, sudo, binário su e ClamAV |
+| [1.2 – Ataques e Estratégias de Defesa](aula-02/atividade-1.2-ataques-estrategias-defesa.md) | VirusTotal, EICAR, MITRE ATT&CK e CIS Controls |
+| [1.3 – Infraestrutura de Chaves Públicas](aula-03/atividade-1.3-infraestrutura-chaves-publicas.md) | Salt, GPG, OpenSSL e autenticação por certificado SSH |
+| [1.4 – Gerenciamento de Configuração e IaC](aula-04/atividade-1.4-gerenciamento-configuracao-iac.md) | Ansible, roles e GitHub |
+| [1.5 – Segurança do Endpoint](aula-05/atividade-1.5-seguranca-endpoint.md) | Remoção de serviços, sudo, binário su e ClamAV |
