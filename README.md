@@ -36,3 +36,4 @@ Este repositório documenta o aprendizado prático obtido nas atividades de labo
 | [2.2 – Segurança em Sistemas Linux](módulo%202%20-%20Segurança%20em%20sistemas%20operacionais%20e%20ativos%20de%20rede/atividade-2.2-seguranca-sistemas-linux.md) | OpenLDAP, autenticação centralizada e SSL/TLS |
 | [2.3 – Bloqueando Ataques de Bruteforce](módulo%202%20-%20Segurança%20em%20sistemas%20operacionais%20e%20ativos%20de%20rede/atividade-2.3-fail2ban.md) | Fail2ban, Hydra e hardening SSH |
 | [2.4 – Utilizando o Docker](módulo%202%20-%20Segurança%20em%20sistemas%20operacionais%20e%20ativos%20de%20rede/atividade-2.4-docker.md) | Docker, Compose, Swarm, limitação de recursos e Portainer |
+| [2.5 – Configuração e Hardening do SSH](módulo%202%20-%20Segurança%20em%20sistemas%20operacionais%20e%20ativos%20de%20rede/atividade-2.5-configuracao-hardening-ssh.md) | Segunda instância SSH, bloqueio de root, autenticação por chave e túnel SOCKS5 |
