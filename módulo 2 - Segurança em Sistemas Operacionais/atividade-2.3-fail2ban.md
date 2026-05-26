@@ -81,7 +81,7 @@ cat /etc/fail2ban/jail.d/defaults-debian.conf
 
 **Tarefa 01** — Print da saída do `cat` acima:
 
-> **[INSERIR PRINT DA TAREFA 01]**
+
 
 Inicialização do serviço:
 
@@ -123,7 +123,7 @@ systemctl status fail2ban
 
 **Tarefa 02** — Print da saída do `systemctl status fail2ban` mostrando `inactive (dead)`:
 
-> **[INSERIR PRINT DA TAREFA 02]**
+
 
 ---
 
@@ -167,7 +167,7 @@ Com o Fail2ban desativado, o Hydra consegue iterar a wordlist sem interrupção 
 
 **Tarefa 03** — Print da saída do Hydra com a senha descoberta:
 
-> **[INSERIR PRINT DA TAREFA 03]**
+
 
 ---
 
@@ -239,7 +239,7 @@ fail2ban-client status
 
 **Tarefa 04** — Print da saída do `fail2ban-client status` mostrando `Jail list: sshd`:
 
-> **[INSERIR PRINT DA TAREFA 04]**
+
 
 ---
 
@@ -281,7 +281,7 @@ fail2ban-client set sshd unbanip 192.168.98.11
 
 **Tarefa 05** — Print do Terminal 01 mostrando o IP `192.168.98.11` sendo banido no log:
 
-> **[INSERIR PRINT DA TAREFA 05]**
+
 
 ---
 
