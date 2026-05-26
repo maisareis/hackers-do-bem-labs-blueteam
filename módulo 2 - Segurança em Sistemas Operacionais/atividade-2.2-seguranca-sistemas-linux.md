@@ -92,7 +92,7 @@ ldapwhoami -H ldapi:/// -x
 
 **Tarefa 01** — Print da saída do `ldapwhoami`:
 
-> **[INSERIR PRINT DA TAREFA 01]**
+
 
 A resposta `anonymous` confirma que o servidor está respondendo corretamente a consultas não autenticadas.
 
@@ -129,7 +129,7 @@ Senha solicitada: `RnpEsr123@`
 
 **Tarefa 02** — Print da saída do `ldapadd`:
 
-> **[INSERIR PRINT DA TAREFA 02]**
+
 
 ---
 
@@ -170,7 +170,7 @@ Senhas solicitadas na ordem:
 
 **Tarefa 03** — Print da saída do `ldappasswd`:
 
-> **[INSERIR PRINT DA TAREFA 03]**
+
 
 ---
 
@@ -199,7 +199,7 @@ O `tcpdump` captura os 6 primeiros pacotes na porta LDAP (389) e os exibe em for
 
 **Tarefa 04** — Print da saída do `tcpdump` no linuxserver:
 
-> **[INSERIR PRINT DA TAREFA 04]**
+
 
 ---
 
@@ -321,7 +321,7 @@ A flag `-ZZ` força o uso de STARTTLS; se o servidor não suportar TLS, a conex�
 
 **Tarefa 05** — Print da saída do `tcpdump` com tráfego criptografado:
 
-> **[INSERIR PRINT DA TAREFA 05]**
+
 
 ---
 
