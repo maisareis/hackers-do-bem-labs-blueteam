@@ -92,7 +92,7 @@ $Time = (Get-Date).Adddays(-($Days))
 Get-ADUser -Filter * -Property whenCreated | Where {$_.whenCreated -gt $Time} | ft Name, WhenCreated
 ```
 
-> **[INSERIR PRINT DA TAREFA 01]**
+
 
 ---
 
@@ -137,7 +137,7 @@ New-ADGroup -Name "$NAME" -SamAccountName "$NAME" `
 Get-ADGroup -Filter {GroupScope -eq "DomainLocal"} -SearchBase "OU=esr.rnp.edu,DC=esr,DC=rnp,DC=edu"
 ```
 
-> **[INSERIR PRINT DA TAREFA 02]**
+
 
 #### Adicionando Usuários aos Grupos Globais
 
@@ -188,7 +188,7 @@ No Windows Server, via Windows Explorer:
 Get-Acl -Path c:\share\financeiro
 ```
 
-> **[INSERIR PRINT DA TAREFA 03]**
+
 
 ---
 
@@ -203,7 +203,7 @@ Em **Propriedades de Financeiro > Segurança > Editar**, os grupos `DL_FINANCEIR
 
 **Tarefa 04** — Print da janela de propriedades com `DL_FINANCEIRO_R` selecionado:
 
-> **[INSERIR PRINT DA TAREFA 04]**
+
 
 ---
 
@@ -233,7 +233,7 @@ Add-LocalGroupMember -Group "Remote Desktop Users" -Member "Domain Users"
 
 **Tarefa 05** — Print do erro ao tentar remover os arquivos:
 
-> **[INSERIR PRINT DA TAREFA 05]**
+
 
 ---
 
