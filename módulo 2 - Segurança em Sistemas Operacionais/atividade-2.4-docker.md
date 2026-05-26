@@ -82,7 +82,7 @@ date; docker ps -a
 
 **Tarefa 01** — Print da saída do `docker ps -a` mostrando o container `hello-world` com status `Exited (0)`:
 
-> **[INSERIR PRINT DA TAREFA 01]**
+
 
 ---
 
@@ -169,7 +169,7 @@ Acesso à aplicação via navegador: `http://192.168.98.10:8088`
 
 **Tarefa 02** — Print da página `PHP Version 7.4.33 phpinfo()` no navegador:
 
-> **[INSERIR PRINT DA TAREFA 02]**
+
 
 Remoção dos containers e limpeza das imagens:
 
@@ -268,7 +268,7 @@ O desvio padrão próximo de zero na segunda execução indica que a carga foi d
 
 **Tarefa 03** — Print da saída do httperf com 8 réplicas mostrando `Errors: total 0`:
 
-> **[INSERIR PRINT DA TAREFA 03]**
+
 
 Encerramento dos containers:
 
@@ -325,7 +325,7 @@ O terminal 01 confirmará que o uso de CPU não ultrapassa 50%, independentement
 
 **Tarefa 04** — Print dos dois terminais: Terminal 01 com `docker stats` mostrando CPU ~50% e Terminal 02 com o comando `curl` e a data:
 
-> **[INSERIR PRINT DA TAREFA 04]**
+
 
 ---
 
@@ -393,7 +393,7 @@ No painel do Portainer: **Local → Containers** para visualizar todos os contai
 
 **Tarefa 05** — Print da tela "Containers" do Portainer:
 
-> **[INSERIR PRINT DA TAREFA 05]**
+
 
 Limpeza ao final do laboratório:
 
