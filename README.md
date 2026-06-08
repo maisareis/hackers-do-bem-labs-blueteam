@@ -37,3 +37,15 @@ Este repositório documenta o aprendizado prático obtido nas atividades de labo
 | [2.3 – Bloqueando Ataques de Bruteforce](módulo%202%20-%20Segurança%20em%20Sistemas%20Operacionais/atividade-2.3-fail2ban.md) | Fail2ban, Hydra e bloqueio automático de IPs |
 | [2.4 – Utilizando o Docker](módulo%202%20-%20Segurança%20em%20Sistemas%20Operacionais/atividade-2.4-docker.md) | Docker, Compose, Swarm, limitação de recursos e Portainer |
 | [2.5 – Configuração e Hardening do SSH](módulo%202%20-%20Segurança%20em%20Sistemas%20Operacionais/atividade-2.5-configuracao-hardening-ssh.md) | Segunda instância SSH, bloqueio de root, autenticação por chave e túnel SOCKS5 |
+
+---
+
+## Módulo 3 – Monitoramento
+
+| Atividade | Tema |
+|-----------|------|
+| [3.1 – Gerenciando e Monitorando Vulnerabilidades](módulo%203%20-%20Monitoramento/atividade-3.1-gerenciando-monitorando-vulnerabilidades.md) | Gerenciamento e monitoramento de vulnerabilidades |
+| [3.2 – Windows Server Update Services (WSUS)](módulo%203%20-%20Monitoramento/atividade-3.2-wsus.md) | Distribuição de atualizações e patches para produtos Microsoft em ambiente corporativo |
+| [3.3 – Técnicas de Autenticação](módulo%203%20-%20Monitoramento/atividade-3.3-tecnicas-autenticacao.md) | Técnicas de autenticação |
+| [3.4 – Monitoramento e Análise de Tráfego](módulo%203%20-%20Monitoramento/atividade-3.4-monitoramento-analise-trafego.md) | Monitoramento e análise de tráfego de rede |
+| [3.5 – Gerenciamento de Logs Centralizados](módulo%203%20-%20Monitoramento/atividade-3.5-gerenciamento-logs-centralizados.md) | Graylog, NTP, pipelines, GROK e análise de logs |
