@@ -39,8 +39,8 @@ Sem limites definidos, um container pode consumir todos os recursos da máquina 
 
 | VM | IP | Usuário | Função |
 |----|----|---------|--------|
-| linuxserver | 192.168.98.10 | root | Host Docker |
-| linuxclient | 192.168.98.11 | root | Cliente de testes (httperf) |
+| linuxserver | [IP_LINUXSERVER] | root | Host Docker |
+| linuxclient | [IP_LINUXCLIENT] | root | Cliente de testes (httperf) |
 
 ---
 
@@ -49,7 +49,7 @@ Sem limites definidos, um container pode consumir todos os recursos da máquina 
 Acesso ao servidor:
 
 ```bash
-ssh root@192.168.98.10
+ssh root@[IP_LINUXSERVER]
 whoami; hostname
 ```
 
@@ -165,7 +165,7 @@ Inicialização dos containers:
 docker-compose up -d
 ```
 
-Acesso à aplicação via navegador: `http://192.168.98.10:8088`
+Acesso à aplicação via navegador: `http://[IP_LINUXSERVER]:8088`
 
 **Tarefa 02** — Print da página `PHP Version 7.4.33 phpinfo()` no navegador:
 
@@ -241,7 +241,7 @@ Com 1 réplica, o container atinge ~50% de CPU sob carga.
 #### Terminal do linuxclient: teste de carga
 
 ```bash
-httperf --server 192.168.98.10 --port 8080 --num-call 10 --num-conns 10000 \
+httperf --server [IP_LINUXSERVER] --port 8080 --num-call 10 --num-conns 10000 \
   --rate 500 --timeout 20
 ```
 
@@ -374,14 +374,14 @@ docker service ls
 docker service ps portainer_stack_portainer
 ```
 
-Acesso via navegador: `https://192.168.98.10:9443` (aceitar o aviso de certificado autoassinado).
+Acesso via navegador: `https://[IP_LINUXSERVER]:9443` (aceitar o aviso de certificado autoassinado).
 
 Na primeira execução, criar o usuário administrador:
 
 | Campo | Valor |
 |-------|-------|
 | Usuário | `admin` |
-| Senha | `RnpEsr123456@` |
+| Senha | `[SENHA]` |
 
 Caso a interface não carregue, forçar reinicialização do serviço:
 
