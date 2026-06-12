@@ -21,7 +21,7 @@ O **LDAP** (Lightweight Directory Access Protocol) é um protocolo de acesso a d
 A estrutura de um diretório LDAP é organizada hierarquicamente por **Distinguished Names (DN)**:
 
 ```
-dc=ldapserver,dc=esr,dc=rnp,dc=edu        ← Base DN (domínio)
+dc=ldapserver,dc=xxx,dc=dominio,dc=local        ← Base DN (domínio)
 ├── ou=people                              ← Unidade organizacional de usuários
 │   └── uid=myoda                          ← Entrada de usuário
 └── ou=group                               ← Unidade organizacional de grupos
@@ -40,8 +40,8 @@ Por padrão, o LDAP transmite dados — incluindo senhas — em **texto claro** 
 
 | VM | IP | Usuário | Função |
 |----|----|---------|--------|
-| linuxserver | 192.168.98.10 | root | Servidor OpenLDAP |
-| linuxclient | 192.168.98.11 | root | Cliente LDAP |
+| linuxserver | [IP_LINUXSERVER] | root | Servidor OpenLDAP |
+| linuxclient | [IP_LINUXCLIENT] | root | Cliente LDAP |
 
 ---
 
@@ -50,7 +50,7 @@ Por padrão, o LDAP transmite dados — incluindo senhas — em **texto claro** 
 Acesso ao servidor:
 
 ```bash
-ssh root@192.168.98.10
+ssh root@[IP_LINUXSERVER]
 ```
 
 Verificação da configuração inicial do banco de dados SLAPD:
@@ -70,13 +70,13 @@ Respostas fornecidas durante o assistente de configuração:
 | Pergunta | Resposta |
 |----------|----------|
 | Omitir configuração do OpenLDAP? | **Não** |
-| DNS domain name (FQDN) | `ldapserver.esr.rnp.edu` |
-| Organization name | `esr.rnp.edu` |
-| Senha do admin | `RnpEsr123@` |
+| DNS domain name (FQDN) | `ldapserver.xxx.dominio.local` |
+| Organization name | `xxx.dominio.local` |
+| Senha do admin | `[SENHA]` |
 | Remover banco ao purgar o slapd? | **Não** |
 | Mover base de dados anterior? | **Sim** |
 
-Após reconfiguração, o DN base passa de `dc=nodomain` para `dc=ldapserver,dc=esr,dc=rnp,dc=edu`.
+Após reconfiguração, o DN base passa de `dc=nodomain` para `dc=ldapserver,dc=xxx,dc=dominio,dc=local`.
 
 Verificação do novo DN base:
 
@@ -110,11 +110,11 @@ cat userAndGroup.ldif
 O arquivo define duas Unidades Organizacionais (OUs) sob o DN base:
 
 ```ldif
-dn: ou=people,dc=ldapserver,dc=esr,dc=rnp,dc=edu
+dn: ou=people,dc=ldapserver,dc=xxx,dc=dominio,dc=local
 objectClass: organizationalUnit
 ou: people
 
-dn: ou=group,dc=ldapserver,dc=esr,dc=rnp,dc=edu
+dn: ou=group,dc=ldapserver,dc=xxx,dc=dominio,dc=local
 objectClass: organizationalUnit
 ou: group
 ```
@@ -122,10 +122,10 @@ ou: group
 Importação das OUs para o banco SLAPD:
 
 ```bash
-ldapadd -x -D cn=admin,dc=ldapserver,dc=esr,dc=rnp,dc=edu -W -f userAndGroup.ldif
+ldapadd -x -D cn=admin,dc=ldapserver,dc=xxx,dc=dominio,dc=local -W -f userAndGroup.ldif
 ```
 
-Senha solicitada: `RnpEsr123@`
+Senha solicitada: `[SENHA]`
 
 **Tarefa 02** — Print da saída do `ldapadd`:
 
@@ -146,27 +146,27 @@ O arquivo `newUser.ldif` define uma entrada do tipo `inetOrgPerson` + `posixAcco
 Importação do usuário:
 
 ```bash
-ldapadd -x -D cn=admin,dc=ldapserver,dc=esr,dc=rnp,dc=edu -W -f newUser.ldif
+ldapadd -x -D cn=admin,dc=ldapserver,dc=xxx,dc=dominio,dc=local -W -f newUser.ldif
 ```
 
 Listagem dos objetos no diretório para confirmar a criação:
 
 ```bash
-ldapsearch -x -LLL -b "dc=ldapserver,dc=esr,dc=rnp,dc=edu"
+ldapsearch -x -LLL -b "dc=ldapserver,dc=xxx,dc=dominio,dc=local"
 ```
 
 Alteração da senha do usuário `myoda` (o arquivo LDIF usa hash genérico; é necessário redefinir via `ldappasswd`):
 
 ```bash
 ldappasswd -H ldapi:/// -x \
-  -D "cn=admin,dc=ldapserver,dc=esr,dc=rnp,dc=edu" -W -S \
-  "uid=myoda,ou=people,dc=ldapserver,dc=esr,dc=rnp,dc=edu"
+  -D "cn=admin,dc=ldapserver,dc=xxx,dc=dominio,dc=local" -W -S \
+  "uid=myoda,ou=people,dc=ldapserver,dc=xxx,dc=dominio,dc=local"
 ```
 
 Senhas solicitadas na ordem:
-1. Nova senha do usuário (`RnpEsr123@`)
+1. Nova senha do usuário (`[SENHA]`)
 2. Confirmação da nova senha
-3. Senha do admin LDAP (`RnpEsr123@`)
+3. Senha do admin LDAP (`[SENHA]`)
 
 **Tarefa 03** — Print da saída do `ldappasswd`:
 
@@ -179,14 +179,14 @@ Senhas solicitadas na ordem:
 #### No linuxclient
 
 ```bash
-ssh root@192.168.98.11
+ssh root@[IP_LINUXCLIENT]
 ```
 
 Teste de conexão remota ao servidor LDAP:
 
 ```bash
 ldapwhoami -vvv -H ldap://ldapserver \
-  -D "uid=myoda,ou=people,dc=ldapserver,dc=esr,dc=rnp,dc=edu" -x -W
+  -D "uid=myoda,ou=people,dc=ldapserver,dc=xxx,dc=dominio,dc=local" -x -W
 ```
 
 #### No linuxserver (simultaneamente)
@@ -238,8 +238,8 @@ Dados informados no certificado da CA:
 | Country Name | `BR` |
 | State or Province Name | `Distrito Federal` |
 | Locality Name | `Brasilia` |
-| Organization Name | `RNP` |
-| Organizational Unit Name | `ESR` |
+| Organization Name | `[ORGANIZACAO]` |
+| Organizational Unit Name | `[UNIDADE]` |
 | Common Name | `ldapserver` |
 
 #### Geração da chave e certificado do servidor LDAP
@@ -314,7 +314,7 @@ No **linuxclient**, repetindo a consulta com a flag `-ZZ` (STARTTLS obrigatório
 
 ```bash
 ldapwhoami -vvv -H ldap://ldapserver \
-  -D "uid=myoda,ou=people,dc=ldapserver,dc=esr,dc=rnp,dc=edu" -x -W -ZZ
+  -D "uid=myoda,ou=people,dc=ldapserver,dc=xxx,dc=dominio,dc=local" -x -W -ZZ
 ```
 
 A flag `-ZZ` força o uso de STARTTLS; se o servidor não suportar TLS, a conexão é encerrada. A saída do `tcpdump` agora exibe apenas bytes aleatórios — nenhuma credencial legível.
