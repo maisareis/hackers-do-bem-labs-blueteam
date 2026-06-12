@@ -47,18 +47,18 @@ usuario.auditor.01 ──► GG_AUDITORIA_ESR ──► DL_FINANCEIRO_R ──�
 
 | VM | IP | Usuário | Função |
 |----|----|---------|--------|
-| Windows Server | 192.168.98.21 | administrator | Controlador de Domínio (esr.rnp.edu) |
-| Windows Client | 192.168.98.22 | Administrator | Estação de trabalho do domínio |
+| Windows Server | [IP_WINDOWSSERVER] | administrator | Controlador de Domínio (xxx.dominio.local) |
+| Windows Client | [IP_WINDOWSCLIENT] | Administrator | Estação de trabalho do domínio |
 
 ---
 
 ### Atividade 1 – Criação de Usuários
 
-Foram criados três usuários no domínio `esr.rnp.edu`, distribuídos nas OUs correspondentes ao departamento de cada um.
+Foram criados três usuários no domínio `xxx.dominio.local`, distribuídos nas OUs correspondentes ao departamento de cada um.
 
 **Usuário Auditor 01** — criado via interface gráfica (Active Directory Users and Computers):
 
-- OU: `esr.rnp.edu > BSB > Auditoria > Users`
+- OU: `xxx.dominio.local > BSB > Auditoria > Users`
 - Nome: `Usuário`, Sobrenome: `Auditor 01`
 - Login: `usuario.auditor.01`
 
@@ -69,8 +69,8 @@ Foram criados três usuários no domínio `esr.rnp.edu`, distribuídos nas OUs c
 New-ADUser -Name "Usuário Financeiro 01" `
   -GivenName "Usuário" -Surname "Financeiro 01" `
   -SamAccountName "usuario.fin.01" `
-  -UserPrincipalName "usuario.fin.01@esr.rnp.edu" `
-  -Path "OU=Users,OU=Financeiro,OU=BSB,OU=esr.rnp.edu,DC=esr,DC=rnp,DC=edu"
+  -UserPrincipalName "usuario.fin.01@xxx.dominio.local" `
+  -Path "OU=Users,OU=Financeiro,OU=BSB,OU=xxx.dominio.local,DC=xxx,DC=dominio,DC=local"
 
 # Definindo senha
 Set-ADAccountPassword -Identity "usuario.fin.01" `
@@ -100,7 +100,7 @@ Get-ADUser -Filter * -Property whenCreated | Where {$_.whenCreated -gt $Time} | 
 
 #### Grupos Globais (via interface gráfica)
 
-Criados na OU `esr.rnp.edu > Grupos > Global Groups`:
+Criados na OU `xxx.dominio.local > Grupos > Global Groups`:
 
 | Grupo | Escopo | Tipo | Descrição |
 |-------|--------|------|-----------|
@@ -118,7 +118,7 @@ $DESCRICAO = "Grupo somente leitura no compartilhamento financeiro"
 New-ADGroup -Name "$NAME" -SamAccountName "$NAME" `
   -GroupCategory Security -GroupScope DomainLocal `
   -DisplayName "$NAME" `
-  -Path "OU=Domain Local Groups,OU=Grupos,OU=esr.rnp.edu,DC=esr,DC=rnp,DC=edu" `
+  -Path "OU=Domain Local Groups,OU=Grupos,OU=xxx.dominio.local,DC=xxx,DC=dominio,DC=local" `
   -Description "$DESCRICAO"
 
 # DL_FINANCEIRO_W — escrita
@@ -127,14 +127,14 @@ $DESCRICAO = "Grupo de escrita no compartilhamento financeiro"
 New-ADGroup -Name "$NAME" -SamAccountName "$NAME" `
   -GroupCategory Security -GroupScope DomainLocal `
   -DisplayName "$NAME" `
-  -Path "OU=Domain Local Groups,OU=Grupos,OU=esr.rnp.edu,DC=esr,DC=rnp,DC=edu" `
+  -Path "OU=Domain Local Groups,OU=Grupos,OU=xxx.dominio.local,DC=xxx,DC=dominio,DC=local" `
   -Description "$DESCRICAO"
 ```
 
 **Tarefa 02** — Listar os grupos de Domínio Local:
 
 ```powershell
-Get-ADGroup -Filter {GroupScope -eq "DomainLocal"} -SearchBase "OU=esr.rnp.edu,DC=esr,DC=rnp,DC=edu"
+Get-ADGroup -Filter {GroupScope -eq "DomainLocal"} -SearchBase "OU=xxx.dominio.local,DC=xxx,DC=dominio,DC=local"
 ```
 
 
@@ -218,7 +218,7 @@ No Windows Client (via Remote Desktop a partir do Windows Server):
 Get-NetIPInterface -AddressFamily IPv4 | Where-Object { $_.InterfaceDescription -notmatch "Loopback" } | Select-Object InterfaceIndex, InterfaceAlias, InterfaceDescription | Format-Table -AutoSize
 
 # Configurar DNS primário e secundário (ajustar InterfaceIndex conforme o ambiente)
-Set-DnsClientServerAddress -InterfaceIndex 11 -ServerAddresses "192.168.98.21","192.168.98.2"
+Set-DnsClientServerAddress -InterfaceIndex 11 -ServerAddresses "[IP_WINDOWSSERVER]","[IP_GATEWAY]"
 
 # Forçar atualização de GPO
 gpupdate.exe /force
