@@ -41,8 +41,8 @@ O **Hydra** é uma ferramenta de ataque de força bruta que testa listas de cred
 
 | VM | IP | Usuário | Função |
 |----|----|---------|--------|
-| linuxserver | 192.168.98.10 | root | Servidor SSH + Fail2ban |
-| linuxclient | 192.168.98.11 | root | Máquina atacante (Hydra) |
+| linuxserver | [IP_LINUXSERVER] | root | Servidor SSH + Fail2ban |
+| linuxclient | [IP_LINUXCLIENT] | root | Máquina atacante (Hydra) |
 
 ---
 
@@ -51,7 +51,7 @@ O **Hydra** é uma ferramenta de ataque de força bruta que testa listas de cred
 Acesso ao servidor:
 
 ```bash
-ssh root@192.168.98.10
+ssh root@[IP_LINUXSERVER]
 ```
 
 Verificação do status inicial (serviço em estado `failed`):
@@ -141,7 +141,7 @@ cat /etc/ssh/sshd_config | grep -Ei "^PasswordAuthentication"
 #### No linuxclient
 
 ```bash
-ssh root@192.168.98.11
+ssh root@[IP_LINUXCLIENT]
 ```
 
 Verificação da versão do Hydra:
@@ -153,7 +153,7 @@ hydra | head -n 2
 Execução do ataque de força bruta contra o SSH do linuxserver:
 
 ```bash
-hydra -l aluno -P /curso/wordlist.txt 192.168.98.10 ssh -f
+hydra -l aluno -P /curso/wordlist.txt [IP_LINUXSERVER] ssh -f
 ```
 
 | Opção | Descrição |
@@ -163,7 +163,7 @@ hydra -l aluno -P /curso/wordlist.txt 192.168.98.10 ssh -f
 | `ssh` | Protocolo alvo |
 | `-f` | Encerra após encontrar a primeira senha válida |
 
-Com o Fail2ban desativado, o Hydra consegue iterar a wordlist sem interrupção até encontrar a senha correta (`rnpesr`).
+Com o Fail2ban desativado, o Hydra consegue iterar a wordlist sem interrupção até encontrar a senha correta (`[SENHA]`).
 
 **Tarefa 03** — Print da saída do Hydra com a senha descoberta:
 
@@ -252,7 +252,7 @@ Dois terminais simultâneos são necessários.
 Desbloqueio preventivo do IP do linuxclient (caso já esteja na lista de banidos):
 
 ```bash
-fail2ban-client set sshd unbanip 192.168.98.11
+fail2ban-client set sshd unbanip [IP_LINUXCLIENT]
 ```
 
 Monitoramento em tempo real do log do Fail2ban:
@@ -266,20 +266,20 @@ tail -f /var/log/fail2ban.log
 Repetição do ataque:
 
 ```bash
-hydra -l aluno -P /curso/wordlist.txt 192.168.98.10 ssh -f
+hydra -l aluno -P /curso/wordlist.txt [IP_LINUXSERVER] ssh -f
 ```
 
-Desta vez, após 4 tentativas falhas dentro de 5 minutos, o Fail2ban detecta o padrão no `auth.log`, cria uma regra de `iptables` bloqueando o IP `192.168.98.11` e registra o evento no `fail2ban.log`. O Hydra começa a receber timeouts e a progressão do ataque para.
+Desta vez, após 4 tentativas falhas dentro de 5 minutos, o Fail2ban detecta o padrão no `auth.log`, cria uma regra de `iptables` bloqueando o IP `[IP_LINUXCLIENT]` e registra o evento no `fail2ban.log`. O Hydra começa a receber timeouts e a progressão do ataque para.
 
 Para encerrar o monitoramento: `Ctrl + C`
 
 Desbloqueio manual do IP após o teste:
 
 ```bash
-fail2ban-client set sshd unbanip 192.168.98.11
+fail2ban-client set sshd unbanip [IP_LINUXCLIENT]
 ```
 
-**Tarefa 05** — Print do Terminal 01 mostrando o IP `192.168.98.11` sendo banido no log:
+**Tarefa 05** — Print do Terminal 01 mostrando o IP `[IP_LINUXCLIENT]` sendo banido no log:
 
 
 
