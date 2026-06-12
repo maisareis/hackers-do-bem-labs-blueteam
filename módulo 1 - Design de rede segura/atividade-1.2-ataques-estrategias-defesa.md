@@ -79,7 +79,7 @@ No MITRE ATT&CK Navigator:
 | Atividade | Descrição |
 |-----------|-----------|
 | 1.1 | URL maliciosa no VirusTotal |
-| 1.2 | IP 89.42.218.5 – Communicating Files |
+| 1.2 | IP xx.xx.xxx.x – Communicating Files |
 | 2 | Arquivo EICAR no VirusTotal |
 | 3 | MITRE – Procedure Examples (Password Spraying) |
 | 4 | CIS Navigator – Mapeamento MITRE v8.2 |
