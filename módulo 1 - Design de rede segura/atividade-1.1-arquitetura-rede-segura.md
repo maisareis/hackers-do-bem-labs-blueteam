@@ -104,7 +104,7 @@ sudo iperf -s
 No linuxclient (modo cliente TCP):
 
 ```bash
-sudo iperf -c 192.168.98.10
+sudo iperf -c xxx.xxx.xx.xx
 ```
 
 Teste com UDP:
@@ -114,16 +114,16 @@ Teste com UDP:
 sudo iperf -s -u
 
 # cliente
-sudo iperf -c 192.168.98.10 -u
-sudo iperf -c 192.168.98.10 -u -b 77M
+sudo iperf -c xxx.xxx.xx.xx -u
+sudo iperf -c xxx.xxx.xx.xx -u -b 77M
 ```
 
 Opções adicionais:
 
 ```bash
-sudo iperf -c 192.168.98.10 -i 3          # exibir status a cada 3s
-sudo iperf -c 192.168.98.10 -P 8          # 8 conexões paralelas
-sudo iperf -c 192.168.98.10 -i 2 -t 15 -f Mbytes
+sudo iperf -c xxx.xxx.xx.xx -i 3          # exibir status a cada 3s
+sudo iperf -c xxx.xxx.xx.xx -P 8          # 8 conexões paralelas
+sudo iperf -c xxx.xxx.xx.xx -i 2 -t 15 -f Mbytes
 ```
 
 ---
