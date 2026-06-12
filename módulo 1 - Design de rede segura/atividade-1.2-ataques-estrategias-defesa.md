@@ -28,14 +28,8 @@ Acesse o VirusTotal (https://www.virustotal.com) e cole a URL: `https://scoala10
 
 #### 1.2 – Pesquisar por IP malicioso
 
-Pesquise pelo IP `89.42.218.5` no VirusTotal. Acesse a aba **Relations > Communicating Files**.
+Pesquise pelo IP `xx.xx.xxx.x` no VirusTotal. Acesse a aba **Relations > Communicating Files**.
 
-**Atividade 1.2: Pesquisa pelo IP 89.42.218.5 – arquivos comunicantes**
-`<Inserir o print aqui>`
-
-> **Pergunta:** Como o VirusTotal pode lhe ajudar em relação à segurança cibernética em sua organização?
->
-> *Resposta:* [INSIRA SUA RESPOSTA AQUI]
 
 ### Atividade 2 – Criando e analisando arquivo EICAR
 
@@ -43,8 +37,6 @@ Crie um arquivo `blueteam.txt` com o conteúdo: `X5O!P%@AP[4\PZX54(P^)7CC)7]$EIC
 
 Envie o arquivo para análise no VirusTotal.
 
-**Atividade 2: Análise do arquivo EICAR no VirusTotal**
-`<Inserir o print aqui>`
 
 ### Atividade 3 – CIS Controls e MITRE ATT&CK
 
@@ -52,27 +44,18 @@ Envie o arquivo para análise no VirusTotal.
 
 No CIS Controls versão 8, localize o controle **6.5 – Require MFA for Administrative Access**.
 
-> **Pergunta:** Qual a numeração e função de segurança para a medida "Impor o bloqueio automático de dispositivos nos dispositivos portáteis do usuário final"?
->
-> *Resposta:* [INSIRA SUA RESPOSTA AQUI]
+
 
 #### 3.2 – MITRE ATT&CK – Técnica Password Spraying
 
 No MITRE ATT&CK, navegue até **Credential Access (TA0006)** → **Brute Force** → **Password Spraying (T1110.003)**.
 
-**Atividade 3: MITRE ATT&CK – Procedure Examples do Password Spraying**
-`<Inserir o print aqui>`
+
 
 ### Atividade 4 – Mapeamento entre CIS Controls e MITRE
 
 No CIS Navigator, ative o mapeamento com **MITRE Enterprise ATT&CK v8.2**.
 
-**Atividade 4: CIS Navigator – mapeamento MITRE Enterprise ATT&CK v8.2**
-`<Inserir o print aqui>`
-
-> **Pergunta:** Qual a melhor forma de usar o CIS Navigator?
->
-> *Resposta:* [INSIRA SUA RESPOSTA AQUI]
 
 ### Atividade 5 – MITRE Navigator: comparação entre APT3 e APT29
 
@@ -81,8 +64,7 @@ No MITRE ATT&CK Navigator:
 2. Crie uma camada para **APT29** (cor e pontuação 2)
 3. Combine as camadas com expressão `a+b`
 
-**Atividade 5: MITRE Navigator – camada combinada APT3 + APT29**
-`<Inserir o print aqui>`
+
 
 ## Aprendizado
 
